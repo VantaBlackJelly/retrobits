@@ -1,14 +1,12 @@
 //HTTP handlers
-import express from 'express'
-import axios from 'axios'
+const express = require('express')
+const axios = require('axios')
 
 const app = express()
 const PORT = 3000
 
 //Image / SVG manipulation
-const sharp = import('sharp')
-import { createSVGWindow } from 'svgdom'
-import { SVG, registerWindow } from '@svgdotjs/svg.js'
+
 
 //      Async / Await example because I can never remember how to do it
 //________________________________________________________________________
@@ -34,16 +32,16 @@ import { SVG, registerWindow } from '@svgdotjs/svg.js'
 //________________________________________________________________________
 
 
-// returns a window with a document and an svg root node
-const window = createSVGWindow()
-const document = window.document
+// // returns a window with a document and an svg root node
+// const window = createSVGWindow()
+// const document = window.document
 
-// register window and document
-registerWindow(window, document)
+// // register window and document
+// registerWindow(window, document)
 
-const canvas = SVG(document.documentElement)
+// const canvas = SVG(document.documentElement)
 
-canvas.rect(100, 100).fill('yellow').move(50,50)
+// canvas.rect(100, 100).fill('yellow').move(50,50)
 
 //Homepage 
 app.get('/', (req, res) => 
