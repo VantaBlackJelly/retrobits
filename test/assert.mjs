@@ -17,3 +17,5 @@ let x = await grid.width()
 let y = await grid.height()
 
 console.log(`await width and height: ${x},${y}`)
+
+console.log(await grid.sharp_image().stats())
