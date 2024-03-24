@@ -6,7 +6,5 @@ console.log(process.argv[2])
 
 const grid = new imageMatrix(process.argv[2],8)
 
-grid.getMetaData().then((data)=>{
-    Object.keys(data).forEach(element => {
-       console.log(data[element]) 
-    });})
+grid.getMetaData(["width","height","depth","peepee"],true)
+    .then((data)=>{console.log(data)})
