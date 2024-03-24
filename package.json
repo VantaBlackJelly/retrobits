@@ -3,9 +3,8 @@
     "@svgdotjs/svg.js": "^3.2.0",
     "axios": "^1.6.8",
     "express": "^4.19.1",
-    "sharp": "^0.33.2",
+    "sharp": "^0.33.3",
     "svgdom": "^0.1.19"
   },
-  "type":"commonjs"
-  
+  "type": "commonjs"
 }

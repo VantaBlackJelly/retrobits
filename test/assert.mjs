@@ -5,8 +5,15 @@ console.log(process.argv[2])
 
 const grid = new imageMatrix(process.argv[2],8)
 
-grid.getMetaData(["width", "height"],true)
-    .then((data)=>{
-        let [w,h] = grid.getBitRatio(data["width"],data["height"]);
-        console.log(`\n Aspect ratio of image is: ${w}/${h}\n`)
-    })
+let data = await grid.getMetaData(["width", "height"])
+    // .then((data)=>{
+    //     console.log(`${data.width},${data.height}`)
+    //     let [w,h] = grid.getBitRatio(data.width,data.height);
+    //     console.log(`\n Aspect ratio of image is: ${w}/${h}\n`)
+    // })
+console.log(`imageMatrix.getMetaData() function returned : ${data.width},${data.height}`)
+
+let x = await grid.width()
+let y = await grid.height()
+
+console.log(`await width and height: ${x},${y}`)
