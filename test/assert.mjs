@@ -21,3 +21,5 @@ console.log(`await width and height: ${x},${y}`)
 console.log(await grid.sharp_stats())
 
 console.log(await grid.getNetBitColor(32,[0,0]))
+
+console.log(await grid.getBitSvgMatrixData(grid.getBitRatio(x,y)))
