@@ -21,10 +21,13 @@ let y = await grid.height()
 
 console.log(`await width and height: ${x},${y}`)
 
+//show sharp stats for whole image before processing
 console.log(await grid.sharp_stats())
 
+//return array of mean color channel quantity per given piremeters and start points
 console.log(await grid.getNetBitColor(32,[0,0]))
 
+//get object{'0':array[]} data structure indcating color data for whole of the given image and bit count
 console.log(await grid.getBitSvgMatrixData(grid.getBitRatio(x,y)))
 
 // const svg_string = async () => {
