@@ -46,7 +46,11 @@ const {app} = require('@azure/functions')
 
 //Homepage 
 // hello/index.js
-app.http('helloWorld1', {
+async function saySomething(something){
+  return `${await something}`
+}
+
+app.http(await saySomething("Bologne!!!!!"), {
   methods: ['POST', 'GET'],
   handler: async (request, context) => {
       context.log('Http function was triggered.');
