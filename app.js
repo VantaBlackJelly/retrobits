@@ -47,8 +47,8 @@ const PORT = 3000
 app.get('/', (req, res) => 
     {
         try {
-                console.log(`${res.statusCode}`)
-                res.send(canvas.svg())
+                // console.log(`${res.statusCode}`)
+                res.send("Hello World!!!")
             } 
         catch (error) {
                 console.log(error)
