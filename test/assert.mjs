@@ -1,10 +1,11 @@
 
 import imageMatrix from '../lib/image-encode.mjs'
+import {performance} from 'perf_hooks'
 
 //get first command line argument, should be photo from filesystem
 console.log(process.argv[2])
 
-const grid = new imageMatrix(process.argv[2],32)
+const grid = new imageMatrix(process.argv[2],64)
 
 let data = await grid.getMetaData(["width", "height"])
 
@@ -19,7 +20,7 @@ let aspect_ratio = grid.getBitRatio(x,y)
     // })
 console.log(`imageMatrix.getMetaData() function returned : ${data.width},${data.height}`)
 
-
+console.log(aspect_ratio)
 
 console.log(`await width and height: ${x},${y}`)
 
@@ -59,4 +60,6 @@ console.log(`await width and height: ${x},${y}`)
 //     }}
 
 // console.log(await svg_string())
-console.log(await grid.getBitSvgMatrixString())
+let timer = async () => {var startTime = performance.now();console.log(await grid.getBitSvgMatrixPaths());var end_time = performance.now();console.log(`${end_time-startTime}`)}
+
+timer()
