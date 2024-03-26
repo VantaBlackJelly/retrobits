@@ -44,7 +44,7 @@ const PORT = 3000
 // canvas.rect(100, 100).fill('yellow').move(50,50)
 
 //Homepage 
-app.get('/', (req, res) => 
+app.get('/api/v1/hello/', (req, res) => 
     {
         try {
                 // console.log(`${res.statusCode}`)
