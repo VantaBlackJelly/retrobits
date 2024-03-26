@@ -1,4 +1,5 @@
 //HTTP handlers
+import {app} from '@azure/functions'
 // const express = require('express')
 // const axios = require('axios')
 
@@ -45,17 +46,13 @@
 
 //Homepage 
 // hello/index.js
-module.exports = async function (context, req) {
-    try {
-      context.res = { body: "Success!" };
-    } catch(error) {
-      const err = JSON.stringify(error);
-      context.res = {
-        status: 500,
-        body: `Request error. ${err}`
-      };
-    }
-  };
+app.http('helloWorld1', {
+  methods: ['POST', 'GET'],
+  handler: async (request, context) => {
+      context.log('Http function was triggered.');
+      return { body: 'Hello, world!' };
+  }
+});
 
 //Start web server on desinated PORT
 //app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`))
