@@ -1,14 +1,17 @@
 
-import { SVGPathElement, createSVGWindow } from 'svgdom'
-import { SVG, registerWindow } from '@svgdotjs/svg.js'
-
 import imageMatrix from '../lib/image-encode.mjs'
 
+//get first command line argument, should be photo from filesystem
 console.log(process.argv[2])
 
 const grid = new imageMatrix(process.argv[2],32)
 
 let data = await grid.getMetaData(["width", "height"])
+
+let x = await grid.width()
+let y = await grid.height()
+let aspect_ratio = grid.getBitRatio(x,y)
+
     // .then((data)=>{
     //     console.log(`${data.width},${data.height}`)
     //     let [w,h] = grid.getBitRatio(data.width,data.height);
@@ -16,19 +19,19 @@ let data = await grid.getMetaData(["width", "height"])
     // })
 console.log(`imageMatrix.getMetaData() function returned : ${data.width},${data.height}`)
 
-let x = await grid.width()
-let y = await grid.height()
+
 
 console.log(`await width and height: ${x},${y}`)
 
+
 //show sharp stats for whole image before processing
-console.log(await grid.sharp_stats())
+//console.log(await grid.sharp_stats())
 
 //return array of mean color channel quantity per given piremeters and start points
-console.log(await grid.getNetBitColor(32,[0,0]))
+//console.log(await grid.getNetBitColor(32,[0,0]))
 
 //get object{'0':array[]} data structure indcating color data for whole of the given image and bit count
-console.log(await grid.getBitSvgMatrixData(grid.getBitRatio(x,y)))
+//console.log(await grid.getBitSvgMatrixData(grid.getBitRatio(x,y))) //<----- Show color data in matrix format
 
 // const svg_string = async () => {
 //     const ratio = grid.getBitRatio(x,y)
@@ -51,11 +54,9 @@ console.log(await grid.getBitSvgMatrixData(grid.getBitRatio(x,y)))
 //             let rect = canvas.rect(bit_width,bit_width)
 //             rect.fill(new SVG.Color(`rgb(${channel[0]}, ${channel[1]}, ${channel[2]})`)).move()
 
-            
-        
-        
+
 //     }
 //     }}
 
 // console.log(await svg_string())
-console.log("<svg>"+await grid.getBitSvgMatrixString(grid.getBitRatio(x,y))+"</svg>")
+console.log(await grid.getBitSvgMatrixString())
