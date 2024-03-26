@@ -9,5 +9,5 @@
     "svgdom": "^0.1.19"
   },
   "type": "commonjs",
-  "main": "src/{index.js,functions/*/*.js}"
+  "main": "src/{index.js,functions/pixel-svg/*.js}"
 }
