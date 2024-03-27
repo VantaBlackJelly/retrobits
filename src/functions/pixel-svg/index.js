@@ -1,5 +1,5 @@
 //HTTP handlers
-// const {app} = require('@azure/functions')
+const {app} = require('@azure/functions')
 // const express = require('express')
 // const axios = require('axios')
 
