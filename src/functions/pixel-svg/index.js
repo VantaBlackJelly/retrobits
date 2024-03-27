@@ -46,9 +46,10 @@ const {app} = require('@azure/functions')
 
 //Homepage 
 // hello/index.js
+
 module.exports = async function (context, req) {
   try {
-    context.res = { body: "Here is where my pixelSVG Function will be triggered!" };
+    context.res = { body: "Success!" };
   } catch(error) {
     const err = JSON.stringify(error);
     context.res = {
@@ -57,6 +58,5 @@ module.exports = async function (context, req) {
     };
   }
 };
-
 //Start web server on desinated PORT
 //app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`))
