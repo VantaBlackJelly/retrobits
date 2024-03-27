@@ -58,14 +58,5 @@ module.exports = async function (context, req) {
   }
 };
 
-
-app.http('functions/pixel-svg/index', {
-  methods: ['POST', 'GET'],
-  handler: async (request, context) => {
-      context.log('Http function was triggered.');
-      return { body: 'Hello, world!' };
-  }
-});
-
 //Start web server on desinated PORT
 //app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}!`))
