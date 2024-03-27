@@ -49,7 +49,7 @@ const {app} = require('@azure/functions')
 
 module.exports = async function (context, req) {
   try {
-    context.res = { body: "Success!" };
+    context.res = { body: "Success!__________pixel" };
   } catch(error) {
     const err = JSON.stringify(error);
     context.res = {
