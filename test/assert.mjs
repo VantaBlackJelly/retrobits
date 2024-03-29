@@ -5,7 +5,7 @@ import {performance} from 'perf_hooks'
 //get first command line argument, should be photo from filesystem
 console.log(process.argv[2])
 
-const grid = new imageMatrix(process.argv[2],64)
+const grid = new imageMatrix(process.argv[2],32)
 
 let data = await grid.getMetaData(["width", "height"])
 
@@ -60,6 +60,6 @@ console.log(`await width and height: ${x},${y}`)
 //     }}
 
 // console.log(await svg_string())
-let timer = async () => {var startTime = performance.now();console.log(await grid.getBitSvgMatrixPaths());var end_time = performance.now();console.log(`${end_time-startTime}`)}
+let timer = async () => {var startTime = performance.now();console.log(await grid.getBitSvgString());var end_time = performance.now();console.log(`${end_time-startTime}`)}
 
 timer()
